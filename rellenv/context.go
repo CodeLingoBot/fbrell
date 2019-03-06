@@ -192,7 +192,7 @@ func (c *Env) Copy() *Env {
 	return &context
 }
 
-// Get the URL for the JS SDK.
+// SdkURL gets the URL for the JS SDK.
 func (c *Env) SdkURL() string {
 	server := "connect.facebook.net"
 	if c.Env != "" {
@@ -201,7 +201,7 @@ func (c *Env) SdkURL() string {
 	return fmt.Sprintf("%s://%s/%s/%s.js", c.Scheme, server, c.locale, c.Module)
 }
 
-// Get the URL for loading this application in a Page Tab on Facebook.
+// PageTabURL gets the URL for loading this application in a Page Tab on Facebook.
 func (c *Env) PageTabURL(name string) string {
 	values := url.Values{}
 	values.Set("sk", fmt.Sprintf("app_%d", c.appID))
@@ -216,7 +216,7 @@ func (c *Env) PageTabURL(name string) string {
 	return url.String()
 }
 
-// Get the URL for loading this application in a Canvas page on Facebook.
+// CanvasURL gets the URL for loading this application in a Canvas page on Facebook.
 func (c *Env) CanvasURL(name string) string {
 	var base = "/" + c.appNamespace + "/"
 	if name == "" || name == "/" {
@@ -293,7 +293,7 @@ func (c *Env) ViewURL(path string) string {
 	}
 }
 
-// JSON representation of Context.
+// MarshalJSON representation of Context.
 func (c *Env) MarshalJSON() ([]byte, error) {
 	data := map[string]interface{}{
 		"appID":                strconv.FormatUint(c.appID, 10),

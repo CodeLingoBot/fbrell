@@ -607,7 +607,7 @@ func (c *exampleContent) HTML(ctx context.Context) (h.HTML, error) {
 	return c, fmt.Errorf("exampleContent.HTML is a dangerous primitive")
 }
 
-// Renders the example content including support for context sensitive
+// Write renders the example content including support for context sensitive
 // text substitution.
 func (c *exampleContent) Write(ctx context.Context, w io.Writer) (int, error) {
 	e := c.Example

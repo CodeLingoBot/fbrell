@@ -230,37 +230,37 @@ func (o *Object) generateDefaults() error {
 	return nil
 }
 
-// Get the first "og:type" value.
+// Type gets the first "og:type" value.
 func (o *Object) Type() string {
 	return o.Get("og:type")
 }
 
-// Get the first "og:title" value.
+// Title gets the first "og:title" value.
 func (o *Object) Title() string {
 	return o.Get("og:title")
 }
 
-// Get the first "og:url" value.
+// URL gets the first "og:url" value.
 func (o *Object) URL() string {
 	return o.Get("og:url")
 }
 
-// Get the first "og:description" value.
+// Description gets the first "og:description" value.
 func (o *Object) Description() string {
 	return o.Get("og:description")
 }
 
-// Get the first "og:image" value.
+// ImageURL gets the first "og:image" value.
 func (o *Object) ImageURL() string {
 	return o.Get("og:image")
 }
 
-// Get the first "fb:app_id" value.
+// AppID gets the first "fb:app_id" value.
 func (o *Object) AppID() string {
 	return o.Get("fb:app_id")
 }
 
-// Get a URL to the Lint tool for the Object.
+// LintURL gets a URL to the Lint tool for the Object.
 func (o *Object) LintURL() string {
 	values := url.Values{}
 	values.Set("q", o.URL())
@@ -274,7 +274,7 @@ func (o *Object) LintURL() string {
 	return u.String()
 }
 
-// Get a URL to the Like button for the Object.
+// LikeURL gets a URL to the Like button for the Object.
 func (o *Object) LikeURL() string {
 	values := url.Values{}
 	values.Set("href", o.URL())
@@ -298,7 +298,7 @@ func (o *Object) Get(key string) string {
 	return ""
 }
 
-// Get all the values associated with the key.
+// GetAll gets all the values associated with the key.
 func (o *Object) GetAll(key string) []string {
 	results := make([]string, 0)
 	for _, pair := range o.Pairs {
@@ -309,7 +309,7 @@ func (o *Object) GetAll(key string) []string {
 	return results
 }
 
-// Add a new Pair to the end of the current list.
+// AddPair adds a new Pair to the end of the current list.
 func (o *Object) AddPair(key, value string) {
 	o.Pairs = append(o.Pairs, Pair{Key: key, Value: value})
 }

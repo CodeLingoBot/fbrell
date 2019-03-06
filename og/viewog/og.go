@@ -42,7 +42,7 @@ type Handler struct {
 	ObjectParser *og.Parser
 }
 
-// Handles /og/ requests.
+// Values handles /og/ requests.
 func (a *Handler) Values(w http.ResponseWriter, r *http.Request) error {
 	ctx := r.Context()
 	env, err := rellenv.FromContext(ctx)
@@ -68,7 +68,7 @@ func (a *Handler) Values(w http.ResponseWriter, r *http.Request) error {
 	return err
 }
 
-// Handles /rog/* requests.
+// Base64 handles /rog/* requests.
 func (a *Handler) Base64(w http.ResponseWriter, r *http.Request) error {
 	ctx := r.Context()
 	env, err := rellenv.FromContext(ctx)
@@ -87,7 +87,7 @@ func (a *Handler) Base64(w http.ResponseWriter, r *http.Request) error {
 	return err
 }
 
-// Handles /rog-redirect/ requests.
+// Redirect handles /rog-redirect/ requests.
 func (h *Handler) Redirect(w http.ResponseWriter, r *http.Request) error {
 	ctx := r.Context()
 	parts := strings.Split(r.URL.Path, "/")
